@@ -42,9 +42,21 @@ def greater_than_Y(arr, y):
 
 def zero_negetive(arr):
 	for x in range(0,len(arr)):
-		if arr[x] < 0:
+		if5 arr[x] < 0:
 			arr[x] = 0
 	return arr
 
 def max_min_ave(arr):
-	print "Max"
+	print "Max: " + str(max(arr)) + " Min: " + str(min(arr)) + " Ave: " + str(float(sum(arr)) / len(arr))
+
+def shift_array(arr):
+	for x in range(0, len(arr)-1):
+		arr[x] = arr[x+1]
+	arr[len(arr)-1] = 0
+	return arr
+
+def swap_negative(arr):
+	for x in range(0, len(arr)):
+		if arr[x] < 0:
+			arr[x] = "Dojo"
+	return arr
