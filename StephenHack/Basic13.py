@@ -59,7 +59,7 @@
 # greaterThanY([3,4,5,6,7,8], 5)
 
 def zeroOutNegatives(arr):
-	for x in range(0, len(arr))
+	for x in range(0, len(arrls))
 
 
 zeroOutNegatives([-4,-3,-2,-1])
