@@ -20,9 +20,16 @@
 			<option value="Python">Python</option>
 			<option value="Python">Python</option>
 		</select></p>
-		<p>Comment (optional):</p>
+		<p>Comment:</p>
 		<p><textarea name="comment" rows="10" cols="35"></textarea></p>
 		<input type="submit" name="Submit">
 	</form>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<h2>{{message}}</h2>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
 </body>
 </html>
