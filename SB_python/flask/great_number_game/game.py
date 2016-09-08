@@ -9,7 +9,8 @@ def before():
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+	afile = 'style.css'
+	return render_template('index.html', afile=afile)
 
 @app.route('/a', methods=['POST'])
 def guess():
