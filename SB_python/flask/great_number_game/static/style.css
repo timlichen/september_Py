@@ -1,0 +1,15 @@
+* {
+	text-align: center;
+}
+
+#color {
+	margin: auto;
+	margin-bottom: 30px;
+	height: 300px;
+	width: 300px;
+	background-color: red;
+}
+
+#color p {
+	vertical-align: middle;
+}
