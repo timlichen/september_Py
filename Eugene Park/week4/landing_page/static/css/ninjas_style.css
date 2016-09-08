@@ -1,0 +1,13 @@
+#main {
+	background-color: black;
+	width: 90%;
+}
+img {
+	display: inline-block;
+}
+#text {
+	color: white;
+	display: inline-block;
+	width: 50%;
+	vertical-align: top;
+}
