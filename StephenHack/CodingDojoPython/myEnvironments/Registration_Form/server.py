@@ -19,20 +19,28 @@ def create_user():
    password = request.form['password']
    confirm_password = request.form['confirm_password']   
 
-   if len(request.form['name']) < 1:
+   if len(request.form['email']) < 1:
       flag = True
       flash("Name cannot be empty")
 
-   if len(request.form['comment']) < 1:
+   if len(request.form['first_name']) < 1:
       flag = True
-      flash("Comment cannot be empty")
+      flash("first_name cannot be empty")
 
-   if len(request.form['comment']) > 120:
+   if len(request.form['last_name']) < 1:
       flag = True
-      flash("Comment can't be more than 120 characters")
+      flash("last_name cannot be empty")
+
+   if len(request.form['password']) < 1:
+      flag = True
+      flash("password cannot be empty")
+
+   if len(request.form['confirm_password']) < 1:
+      flag = True
+      flash("confirm_password cannot be empty")
    
    if not flag:
-      return render_template('results.html', name=name, location=location, language=language, comment=comment)
+      return render_template('results.html', email=email, first_name=first_name, last_name=last_name, password=password, confirm_password=confirm_password)
    else:
       return redirect('/')
 app.run(debug=True)

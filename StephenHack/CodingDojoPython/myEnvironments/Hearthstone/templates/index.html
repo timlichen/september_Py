@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>'
+	<head>
+		<meta charset="UTF-8">
+		<title>Hearthstone API</title>
+	</head>
+	<body>
+		<h1>Hello</h1>
+		<form action="/getCard" method="Post">
+			<p>Please Enter a Valid Card Name of ID </p>
+			<input type="text" name="cardName">
+			<input type="submit" value="Go">
+		</form>
+		<img src="{{data.img}}" alt="cardImage">
+		<div>
+			<ul>
+				<li>{{data.name}}</li>
+				<li>{{data.cardId}}</li>
+				<li>{{data.cardSet}}</li>
+			</ul>
+		</div
+	</body>
+</head>
