@@ -13,3 +13,5 @@ print get_matching_words("b.+b")
 print get_matching_words("b\w*b")
 print get_matching_words("aeiouy")
 print get_matching_words("^[regularxpsion]+$")
+print get_matching_words("aa|bb|cc|dd|ee|ff|gg|hh|ii|jj|kk|ll|mm|oo|pp|qq|rr|ss|tt|uu|vv|ww|xx|yy|zz")
+
