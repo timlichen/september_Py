@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Success!</title>
+</head>
+<body>
+  <div>
+    <p>Thanks for sucessfully registering by using the email {{session['email']}}!</p>
+  </div>
+  <div>
+    {% for email in emails %}
+      <p>
+        <ul>
+        <li>EMAIL: {{email.email}}</li>
+      <li>CREATED AT: {{email.created_at}}</li>
+        </ul>
+      </p>
+    {% endfor %}
+  </div>
+</body>
+</html>
