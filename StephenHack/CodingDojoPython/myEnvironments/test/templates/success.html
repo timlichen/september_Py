@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='en'>'
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing with Tim</title>
+	</head>
+	<body>
+		<div>
+			<p>Thanks for successfully reigstering by using the email {{session['email']}}!</p>
+		</div>
+		<div>
+			{{emails}}
+			{% for email in emails %}
+				<p>
+					<ul>
+						<li>Email: {{email.Email}}</li>
+						<li>Created at: {{email.createdat}} </li>
+					</ul>
+				</p>
+			{% endfor %}
+		</div>
+	</body>
+</head>
