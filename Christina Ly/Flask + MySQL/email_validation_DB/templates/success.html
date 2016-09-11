@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Email Validation</title>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+	</head>
+	<body id = "successbody">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p id=green>{{message}}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<h1>Email Address Entered:</h1>
+		{% for email in all_emails: %}
+			<h3>{{email['email']}} {{email['created_at']}}</h3>
+			<form action ="/remove/{{email['id']}}" method = 'POST' class="successform">
+				<input type = "submit" value="Remove">
+			</form><br>
+		{% endfor %}
+	</body>
+</html>

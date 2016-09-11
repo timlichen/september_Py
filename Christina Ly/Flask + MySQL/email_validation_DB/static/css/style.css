@@ -1,0 +1,42 @@
+p{
+	width: 50%;
+	height:4em;
+	text-align: center;
+	padding-top:2em;
+	margin-left: 25%;
+}
+#green{
+	background-color: green;
+}
+#red{
+	background-color: red;
+	color:white;
+}
+h1{
+	text-decoration: underline;
+	text-align: left;
+	margin-left: 20%
+}
+h3{
+	text-align: left;
+	margin-left:30%;
+	display: inline-block;
+}
+.successform{
+	display: inline-block;
+}
+#email{
+	width:40%;
+}
+body{
+	text-align: center;
+}
+#successbody{
+	text-align: left;
+}
+.enter{
+	margin-top: 20%;
+}
+#submit{
+	margin-left:50%;
+}

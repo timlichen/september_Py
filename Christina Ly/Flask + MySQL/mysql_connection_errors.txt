@@ -1,0 +1,14 @@
+MAKE SURE YOU SUPPLIED CORRECT PASSWORD TO SELF.CONFIG.PASSWORD
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'root'@'localhost' (using password:YES)")
+
+MAKE SURE YOU SUPPLIED CORRECT DATABASE TO SELF.CONFIG.DATABASE
+NameError: global name 'sdfs' is not defined
+
+MAKE SURE YOU SUPPLIED DATABASE TO SELF.CONFIG.DATABASE
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1046, 'No database selected')
+
+MAKE SURE YOU SUPPLIED CORRECT USER TO SELF.CONFIG.USER
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1044, "Access denied for user ''@localhost' to database 'mydb'")
+
+MAKE SURE YOU SUPPLIED CORRECT PORT TO SELF.CONFIF.PORT
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1'(10061)")
