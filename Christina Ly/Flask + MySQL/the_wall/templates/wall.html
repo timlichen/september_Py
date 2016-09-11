@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Registration</title>
+</head>
+<body>
+	<h4>Post a message</h4>
+	<form action ='/message' method = 'POST'>
+		<textarea name = "message" id = "message"></textarea>
+		<input type = "submit" value="Post a message">
+	</form>
+	{% for message in all_messages: %}
+		{{message['message']}} {{message['created_at']}}<br>
+	{% endfor %}
+</body>
+</html>

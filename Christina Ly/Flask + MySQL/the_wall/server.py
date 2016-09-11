@@ -10,9 +10,7 @@ bcrypt = Bcrypt(app)
 mysql = MySQLConnector(app,'login_registration')
 @app.route('/')
 def index():
-	users = mysql.query_db("SELECT * FROM users")
-	print users
-	return render_template('index.html', all_users = users)
+	return render_template('index.html')
 @app.route('/user', methods=['POST'])
 def register():
 	if len(request.form['first_name']) <2:
@@ -41,11 +39,8 @@ def register():
 		query_data = { 'email': request.form['email']}
 		user = mysql.query_db(user_query, query_data)
 		session['loggedin'] = user[0]['id']
-		return redirect ('/success')
+		return redirect ('/wall')
 	return redirect('/')
-@app.route('/login')
-def login():
-	return render_template('login.html')
 @app.route('/loginvalidate', methods=['POST'])
 def validate():
 	email = request.form['email']
@@ -56,11 +51,20 @@ def validate():
 	if bcrypt.check_password_hash(user[0]['password'], password):
 		flash("Logged in")
 		session['loggedin'] = user[0]['id']
-		return redirect('/success')
+		return redirect('/wall')
 	else:
 		flash("Invalid Password")
-	return redirect('/login')
-@app.route('/success')
+	return redirect('/')
+@app.route('/message', methods= ['POST'])
+def	message():
+	curid = session['loggedin']
+	print curid
+	query = "INSERT INTO messages (user_id, message, created_at, updated_at) VALUES (:user_id, :message, NOW(), NOW())"
+	data = {'user_id': curid,'message': request.form['message']}
+	mysql.query_db(query, data)
+	return redirect('/wall')
+@app.route('/wall')
 def success():
-	return render_template('success.html')
+	messages = mysql.query_db("SELECT * FROM messages")
+	return render_template('wall.html', all_messages = messages)
 app.run(debug = True)
