@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="/friends" method="post">
+		<input type="text" name="name">
+		<input type="submit" value="Add friend">
+	</form>
+	<ul>
+		{% for friend in friends %}
+		<li>Email: {{friend.name}}</li>
+		<li>CREATED AT: {{friend.created_at}}</li>
+		<li>UPDATED AT: {{friend.updated_at}}</li>
+		<form action="/friends/{{friend.id}}/edit"><input type="submit" value="Edit {{friend.name}}"></form>
+		<form action="/friends/{{friend.id}}/delete"><input type="submit" value="Delete {{friend.name}}"></form>
+		{% endfor %}
+	</ul>
+</body>
+</html>

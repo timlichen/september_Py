@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% if unique %}
+	<h1>{{unique[0].name}}</h1>
+	<p>Edit name</p>
+	<form action="/friends/<{{unique[0]['id']}}>" method="post">
+		<input type="text" name="name_edit">
+		<input type="submit" value="Done">
+	</form>
+	{%endif%}
+</body>
+</html>

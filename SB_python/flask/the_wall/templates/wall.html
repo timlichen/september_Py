@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>THE WALL</title>
+	<style>
+		ul {
+			margin-bottom: 30px;
+		}
+	</style>
+</head>
+<body>
+	<h1>WALL {{session['userID']}}</h1>
+	<form action="/logoff">
+		<input type="submit" value="Log off">
+	</form>
+	<form action="/{{session['userID']}}/new_message" method="post">
+		New Message: <input type="text" name="message">
+		<input type="submit" value="Post">
+	</form>
+	{% for a in range((messages|length) - 1, 0, -1) %}
+	<ul>
+		<li>{{ messages[a]['first_name'] + " " + messages[a]['last_name'] + " "}} {{messages[a]['created_at']}}</li>
+		<li><p>{{messages[a]['message']}}</p></li>
+		<ul>
+			{% for comment in comments %}
+			{% if comment['messages_id'] == messages[a]['id'] %}
+			<li>{{comment['first_name']}} {{comment['last_name']}}: {{comment['comment']}} {{comment['created_at']}}</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+		{% with newstring = messages[a]['id'] %}
+		<li><form action="/comment/{{newstring}}" method="post">Comment:<input type="text" name="comment">
+			<input type="submit" value="Comment">
+		</form></li>
+		{%endwith%}
+		<li>{{messages[a]}}</li>
+	</ul>
+	{% endfor %}
+</body>
+</html>
