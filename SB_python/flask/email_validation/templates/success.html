@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>{{session['email']}}</p>
+	<p></p>
+	<ul>
+		{% for email in emails %}
+		<li>Email: {{email.email}}</li>
+		<li>CREATED AT: {{email.created_at}}</li>
+		<li>UPDATED AT: {{email.updated_at}}</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>
