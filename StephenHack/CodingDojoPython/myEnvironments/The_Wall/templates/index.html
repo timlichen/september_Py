@@ -1,0 +1,29 @@
+<html>
+    <head>
+       <title>The Wall by Stephen Hack</title>
+    </head>
+    <body>
+      <h1>Index Page</h1>
+       {% with messages = get_flashed_messages() %}
+        {% if messages %}
+         {% for message in messages %}
+           <p>{{message}}</p>
+         {% endfor %}
+        {% endif %}
+       {% endwith %}
+      <h3>Create a User</h3>
+      <form action='/result' method='post'>
+         <p>email:</p>
+         <input type="text" name="email">
+         <p>first_name:</p>
+         <input type="text" name="first_name">
+         <p>last_name:</p>
+         <input type="text" name="last_name">
+         <p>password</p>
+         <input type="text" name="password">
+         <p>confirm_password</p>
+         <input type="text" name="confirm_password">
+         <input type="submit"> 
+      </form>
+    </body>
+</html>
