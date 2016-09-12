@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Login and Registration</title>
-</head>
-<body>
-	<h4>Post a message</h4>
-	<form action ='/message' method = 'POST'>
-		<textarea name = "message" id = "message"></textarea>
-		<input type = "submit" value="Post a message">
-	</form>
-	{% for message in all_messages: %}
-		{{message['message']}} {{message['created_at']}}<br>
-	{% endfor %}
-</body>
+	<head>
+		<title>Coding Dojo Wall</title>
+		<link rel="stylesheet" type = "text/css" href = "{{url_for('static', filename= 'css/style.css')}}">
+	</head>
+	<body>
+		<h2>Post a message</h2>
+		<form action ='/message' method = 'POST'>
+			<textarea name = "message" id = "message"></textarea><br>
+			<input type = "submit" value="Post a message">
+		</form>
+		{% for message in all_messages: %}
+			{{message['first_name']}} {{message['last_name']}} {{message['created_at']}}<br>
+			{{message['message']}} <br><br>
+			<p class = 'comment'>
+			{% for comment in message['all_comments']: %}
+				{{comment['first_name']}} {{comment['last_name']}} {{comment['created_at']}}<br>
+				{{comment['comment']}}<br><br>
+			{% endfor %}</p>
+			<h2>Post a comment</h2>
+			<form action ='/comment' method = 'POST'>
+				<textarea name = "comment" id = "comment"></textarea>
+				<input type = "hidden" value = "{{message['id']}}" name= 'message'><br>
+				<input type = "submit" value="Post a comment">
+			</form>
+		{% endfor %}
+	</body>
 </html>

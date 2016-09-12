@@ -57,14 +57,23 @@ def validate():
 	return redirect('/')
 @app.route('/message', methods= ['POST'])
 def	message():
-	curid = session['loggedin']
-	print curid
 	query = "INSERT INTO messages (user_id, message, created_at, updated_at) VALUES (:user_id, :message, NOW(), NOW())"
-	data = {'user_id': curid,'message': request.form['message']}
+	data = {'user_id': session['loggedin'],'message': request.form['message']}
+	mysql.query_db(query, data)
+	return redirect('/wall')
+@app.route('/comment', methods = ['POST'])
+def comment():
+	query = "INSERT INTO comments(message_id, user_id, comment, created_at, updated_at) VALUES (:message_id, :user_id, :comment, NOW(), NOW())"
+	data = {'user_id': session['loggedin'],'message_id': request.form['message'], 'comment': request.form['comment']}
 	mysql.query_db(query, data)
 	return redirect('/wall')
 @app.route('/wall')
 def success():
-	messages = mysql.query_db("SELECT * FROM messages")
+	messages = mysql.query_db("SELECT messages.id, messages.created_at, users.first_name, users.last_name, messages.message FROM messages LEFT JOIN users ON users.id = messages.user_id ORDER BY messages.created_at DESC")
+	for message in messages:
+		comment_query = "SELECT comments.id, comments.created_at, users.first_name, users.last_name, comments.comment FROM comments LEFT JOIN users ON users.id = comments.user_id WHERE message_id = :message ORDER BY comments.created_at ASC"
+		query_data = {'message':message['id']}
+		comment = mysql.query_db(comment_query, query_data)
+		message['all_comments']=comment
 	return render_template('wall.html', all_messages = messages)
 app.run(debug = True)
