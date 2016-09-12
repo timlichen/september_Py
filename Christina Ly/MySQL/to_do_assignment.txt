@@ -1,0 +1,9 @@
+show databases;
+use twitter;
+show tables;
+SELECT * FROM users;
+SELECT users.first_name, users.last_name
+FROM users
+WHERE users.id =2 OR users.id = 3;
+
+

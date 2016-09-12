@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Great Number Game</title>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/number_game.js') }}"></script>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index_style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_style.css') }}">
 </head>
 <body>
 	<div id="top">
@@ -18,7 +17,7 @@
 		<h2 class="right">{{ session['roll'] }} was the number!</h2>
 		<a class="right" href="/replay"><button>Play again!</button></a>
 	</div>
-	<form id="guess" action="/" method="post">
+	<form id="guess" action="/guess" method="post">
 		<input type="number" name="user_guess">
 		<input type="submit" value="Submit">
 	</form>

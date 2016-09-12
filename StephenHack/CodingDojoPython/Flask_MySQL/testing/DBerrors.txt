@@ -1,0 +1,6 @@
+'host': 'localhos', -> fine for some reason
+'user': 'steve', - > fine for some reason
+
+Commenting out database, produces a database error
+Commenting out user - > key user error
+

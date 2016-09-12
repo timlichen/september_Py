@@ -1,0 +1,19 @@
+<html>
+  <head>
+     <title>Disappearing Ninjas</title>
+  </head>
+  <body>
+  	<form>
+    <h1>All 4 Ninjas</h1>
+	    <p><img src="{{ url_for('static', filename='IMG/leonardo.jpg') }}"></p>
+	    <p><img src="{{ url_for('static', filename='IMG/michelangelo.jpg') }}"></p>
+	    <p><img src="{{ url_for('static', filename='IMG/donatello.jpg') }}"></p>
+	    <p><img src="{{ url_for('static', filename='IMG/raphael.jpg') }}"></p>
+	    <p><img src="{{ url_for('static', filename='IMG/'+ninja) }}"</p>
+	  
+	
+    </form>
+
+    <h2>{{ninja_displayed}}</h2>
+  </body> 
+</html>

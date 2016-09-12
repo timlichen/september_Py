@@ -1,0 +1,24 @@
+body{
+	text-align: center;
+}
+.red{
+	width:30%;
+	height: 5em;
+	border: 1px solid black;
+	text-align: center;
+	background-color: red;
+	color:white;
+	padding:2%;
+}
+.green{
+	width:30%;
+	height: 5em;
+	border: 1px solid black;
+	text-align: center;
+	background-color: green;
+	color:white;
+	padding:2%;
+}
+#center{
+	margin-left: 40%;
+}

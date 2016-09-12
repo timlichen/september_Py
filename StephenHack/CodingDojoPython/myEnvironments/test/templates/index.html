@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>'
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing with Tim</title>
+	</head>
+	<body>
+		<h1>Please Enter a Valid Email</h1>
+		<form action ="/validateEmail" method="Post">
+			<input type="text" name="email">
+			<input type="submit" value="Go">
+		</form>
+		<div>
+			{% with messages = 
+			get_flashed_messages() %}
+			{% if messages %}
+			{% for message in messages%}
+				<p>{{messages}}</p>
+			{%endfor%}
+			{%endif%}
+			{%endwith%}
+		</div>
+	</body>
+</head>

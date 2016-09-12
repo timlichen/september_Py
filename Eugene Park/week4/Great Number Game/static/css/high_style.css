@@ -1,0 +1,25 @@
+body {
+	text-align: center;
+}
+
+#mid {
+	display: visible;
+	margin: 0px auto;
+	width: 250px;
+	height: 250px;
+	background-color: red;
+	color: white;
+}
+
+.low {
+	display: none;
+}
+
+.high {
+	position: relative;
+	top: 110px;
+}
+
+.right {
+	display: none;
+}

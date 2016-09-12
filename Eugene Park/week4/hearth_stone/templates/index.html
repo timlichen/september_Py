@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Hearthstone API</title>
+</head>
+<body>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<p>{{ message }}</p>
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+	<h1>Hello!</h1>
+	<form action="/getCard" method="Post">
+		<p>Card Name:</p>
+		<input type="text" name="cardName">
+		<input type="submit" name="go">
+	</form>
+	<img src="{{data.img}}" alt="monster">
+	<div>
+		<ul>
+			<li>{{data.name}}</li>
+			<li>{{data.cardId}}</li>
+			<li>{{data.cardSet}}</li>
+		</ul>
+	</div>
+</body>
+</html>
