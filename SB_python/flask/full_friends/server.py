@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request
 from connection import MySQLConnection
 app = Flask(__name__)
 app.secret_key = "yep"
@@ -14,8 +14,7 @@ def index():
 @app.route('/friends', methods=['POST'])
 def create():
 	name = request.form['name']
-	if mysql.query_db("INSERT INTO friends (name, created_at, updated_at) VALUES (:name, NOW(), NOW())", {"name" : name}):
-		print "success"
+	mysql.query_db("INSERT INTO friends (name, created_at, updated_at) VALUES (:name, NOW(), NOW())", {"name" : name}):
 	return redirect('/')
 
 @app.route('/friends/<id>/edit')
