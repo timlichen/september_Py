@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>{{friends}}</title>
+</head>
+<body>
+    <h1> {{friends['first_name']}} {{friends['last_name']}}</h1>
+    <form action="/friends/{{friends['id']}}/update" method='POST'>
+      <label for = "first_name">First Name:<input type ="text" name = "first_name" id = "first_name"></label>
+      <label for = "last_name">Last Name:<input type ="text" name = "last_name" id = "last_name"></label>
+      <label for = "occupation">Occupation:<input type ="text" name = "occupation" id = "email"></label>
+      <input type = "submit" value="Change">
+    </form>
+</body>
+</html>
