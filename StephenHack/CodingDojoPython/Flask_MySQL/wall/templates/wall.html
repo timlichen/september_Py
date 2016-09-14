@@ -1,0 +1,28 @@
+<html>
+    <head>
+       <title>The Wall by Stephen Hack</title>
+       <style type="text/css">
+        #my-text-box {
+          width: 800px;
+          height: 200px;
+        }
+
+       </style>
+    </head>
+    <body>
+      <h1>Coding Dojo Wall</h1>
+      <h3>Welcome {{first_name}} {{userkey}} </h3>
+      <form action='/logoff' method='post'><a href="http://127.0.0.1:5000">Log Off</a></form>
+      <h1>Post a message</h1>
+      <form action='/{{userkey}}/newMessage' method='post'>
+        <input type='text' id='my-text-box' name='message'>
+        <input type='submit'>
+      </form> 
+
+      <h3> {% for message in all_messages: %}
+        <p>ID: {{userkey}} 
+
+
+
+    </body>
+</html>
