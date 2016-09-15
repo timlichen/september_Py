@@ -1,0 +1,1 @@
+call djangoEnv/scripts/activate

@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Random Word (Attempt: {{request.session.counter}})</h2>
+
+	<p>{{request.session.random_word}}</p>
+	<form action="/submit" method='post'>
+		{% csrf_token %}
+		<input type=submit>
+	</form>
+</body>
+</html>
