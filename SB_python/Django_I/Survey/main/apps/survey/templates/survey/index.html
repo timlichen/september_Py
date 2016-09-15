@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form id="one" action="/result" method="post">
+		{% csrf_token %}
+		Your name: <input type="text" name="name">
+		Location
+		<select name="location" form="one">
+			<option value="dc">DC</option>
+			<option value="seattle">Seattle</option>
+			<option value="chicago">Chicago</option>
+		</select>
+		Language
+		<select name="lang" form="one">
+			<option value="JS">JS</option>
+			<option value="Python">Python</option>
+			<option value="Ruby">Ruby</option>
+		</select>
+		<textarea form="one" name="comm">Comments...</textarea>
+		<input type="submit" value="Go!">
+	</form>
+</body>
+</html>

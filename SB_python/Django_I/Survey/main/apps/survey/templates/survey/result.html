@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Thanks for submitting this form! You have submitted this form {{request.session.count}} times now.</h1>
+	<h3>Submitted Information</h3>
+	<p>Name: {{request.POST.name}}</p>
+	<p>Location: {{request.POST.location}}</p>
+	<p>Language: {{request.POST.lang}}</p>
+	<p>Comment: {{request.POST.comm}}</p>
+	<a href="/back"><button>Back</button></a>
+</body>
+</html>
