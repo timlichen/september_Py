@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+</head>
+<body>
+  {{request.session.counter}}
+  {{request.session.info.favLang}}
+  {{request.session.info.dojoLoc}}
+  {{request.session.info.name}}
+  {{request.session.info.comments}}
+  <a href="/"><button>Go Back!</button></a>
+  <a href="/sessionClear"><button>Reset Counter!</button></a>
+</body>
+</html>

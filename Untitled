@@ -1,6 +1,0 @@
-class human(object):
-    def __init__(self):
-        self.hairColor = "black"
-
-tim = human()
-print tim.hairColor
