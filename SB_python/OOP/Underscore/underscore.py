@@ -2,18 +2,18 @@ class Underscore(object):
     def map(self, alist, callback):
         for i in range(0, len(alist)):
             alist[i] = callback(alist[i])
-        print alist
+        return alist
 
     def reduce(self, alist, callback, memo):
         result = memo
         for i in range(0, len(alist)):
             result += callback(memo, alist[i])
-        print result
+        return result
 
     def find(self, alist, callback):
         for e in alist:
             if callback(e):
-                print e
+                return e
                 break
 
     def filter(self, alist, callback):
@@ -21,14 +21,14 @@ class Underscore(object):
         for i in range(0, len(alist)):
             if callback(alist[i]):
                 arr.append(alist[i])
-        print arr
+        return arr
 
     def reject(self, alist, callback):
         arr = []
         for i in range(0, len(alist)):
             if not callback(alist[i]):
                 arr.append(alist[i])
-        print arr
+        return arr
 
 
 _ = Underscore()
