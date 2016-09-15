@@ -19,10 +19,13 @@
         <input type='submit'>
       </form> 
 
-      <h3> {% for message in all_messages: %}
-        <p>ID: {{userkey}} 
-
-
-
+      {% for message in messages %}
+        <p>{{message['first_name']}} {{message['last_name']}} {{message['created_at']}}</p>
+            <form action='/{{userkey}}/newComment' method='post'>
+              <input type='text' id='my-text-box' name='comment'>
+              <input type='submit'>
+            </form> 
+        <p>{{message['message']}}<p>
+      {% endfor %}
     </body>
 </html>

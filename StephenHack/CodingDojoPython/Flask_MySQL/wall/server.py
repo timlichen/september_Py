@@ -64,8 +64,9 @@ def register():
 		print user
 		session['userkey'] = user[0]['id']
 		session['first_name'] = first_name
-		messages_query = "SELECT users.first_name, users.last_name, message.id, messages.created_at FROM messages JOIN users on "
-		return render_template('wall.html', userkey=session['userkey'], first_name=session['first_name'] )
+		messages = mysql.query_db("SELECT users.first_name, users.last_name, messages.id, messages.created_at, messages.message FROM messages JOIN users on messages.users_id = users.id ORDER BY messages.created_at DESC")
+		comments = mysql.query_db("")
+		return render_template('wall.html', userkey=session['userkey'], first_name=session['first_name'], messages = messages)
 	else: 
 		return redirect('/')
 @app.route('/logoff')
@@ -74,11 +75,12 @@ def logoff():
 	return render_template("index.html")
 @app.route('/<userkey>/newMessage', methods=['POST'])
 def addMessage(userkey):
-	print userkey
 	message = request.form['message']
 	messageQuery = "INSERT INTO messages (users_id, message, created_at, updated_at) VALUES (:userkey, :message, NOW(), NOW())"
 	query_data3 = {'userkey': userkey, 'message': request.form['message']}
 	mysql.query_db(messageQuery, query_data3)
-	return render_template('wall.html', userkey=session['userkey'], first_name=session['first_name'])
+	messages = mysql.query_db("SELECT users.first_name, users.last_name, messages.id, messages.created_at FROM messages JOIN users on messages.users_id = users.id ORDER BY messages.created_at DESC")
+
+	return render_template('wall.html', userkey=session['userkey'], first_name=session['first_name'], messages=messages)
 
 app.run(debug=True)
