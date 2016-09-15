@@ -7,7 +7,7 @@ NAME_REGEX = re.compile(r'^[a-zA-Z-]+$')
 app = Flask(__name__)
 app.secret_key = 'Secret'
 bcrypt = Bcrypt(app)
-mysql = MySQLConnector(app,'login_registration')
+mysql = MySQLConnector(app,'the_wall')
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -31,7 +31,7 @@ def register():
 		flash("Passwords must match")
  	else:
  		flash("You have successfully registered!")
- 		pw_hash = bcrypt.generate_password_hash(request.form['password'])	
+ 		pw_hash = bcrypt.generate_password_hash(request.form['password'])
 		query = "INSERT INTO users (first_name, last_name, email, password, created_at, updated_at) VALUES (:first_name, :last_name, :email, :pw_hash, NOW(), NOW())"
 		data = {'first_name':request.form['first_name'], 'last_name': request.form['last_name'], 'email': request.form['email'], 'pw_hash': pw_hash }
 		mysql.query_db(query, data)

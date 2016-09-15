@@ -4,10 +4,10 @@ class MySQLConnection(object):
 	def __init__(self,app,db):
 		config = {
 			'host': 'localhost',
-			'database': db, 
+			'database': db,
 			'user': 'root',
-			'password': '',
-			'port': '3306'
+			'password': 'root',
+			'port': '8889'
 		}
 		DATABASE_URI = "mysql://{}:{}@127.0.0.1:{}/{}".format(config['user'], config['password'], config['port'], config['database'])
 		app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI

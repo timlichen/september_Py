@@ -41,6 +41,7 @@ def register():
 
 @app.route('/<id>/new_message', methods=['POST'])
 def newMessage(id):
+
 	mysql.query_db("INSERT INTO messages (users_id, message, created_at, updated_at) VALUES (:id, :message, NOW(), NOW())", {'id' : id, 'message' : request.form['message']})
 	messages = mysql.query_db("SELECT users.first_name, users.last_name, messages.id, messages.created_at FROM messages JOIN users ON messages.users_id = users.id")
 	comments = mysql.query_db("SELECT * FROM comments JOIN users ON comments.users_id = users.id")

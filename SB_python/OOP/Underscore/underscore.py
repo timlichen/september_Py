@@ -32,8 +32,8 @@ class Underscore(object):
 
 
 _ = Underscore()
-evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
-odds = _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
-find = _.find([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+# evens = _.filter([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+# odds = _.reject([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
+# find = _.find([1, 2, 3, 4, 5, 6], lambda x: x % 2 == 0)
 evens = _.reduce([1, 2, 3, 4, 5, 6], lambda memo, e: memo + e, 0)
-evens = _.map([1, 2, 3, 4, 5, 6], lambda x: x * 2)
+# evens = _.map([1, 2, 3, 4, 5, 6], lambda x: x * 2)
