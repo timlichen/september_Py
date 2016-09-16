@@ -4,11 +4,15 @@ from django.shortcuts import render, redirect
 def index(request):
 	return render(request, 'survey/index.html')
 
-def result(request):
+def process(request):
 	if 'count' in request.session:
 		request.session['count'] += 1
 	else:
 		request.session['count'] = 1
+	request.session['data'] = [request.POST['name'], request.POST['location'], request.POST['lang'], request.POST['comm']]
+	return redirect('/result')
+
+def result(request):
 	return render(request, 'survey/result.html')
 
 def back(request):
