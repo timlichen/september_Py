@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Full Friends Edit</title>
+</head>
+<body>
+	<h1>Friend to Edit</h1>
+	{% for item in single_friend %}
+	<p>ID: {{ item['id'] }}</p>
+   	<p>First Name: {{ item['first_name'] }}</p>
+   	<p>Last Name: {{ item['last_name'] }}</p>
+   	<p>Email: {{ item['email'] }}</p>
+   	<h2>Edit Info</h2>
+   	<form action="/friends/{{item['id']}}" method='POST'>
+		<label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+	    <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+	    <label for="email">Email:<input type="text" name="email" id="email"></label>
+	    <input type="submit" value="Edit">
+	</form>
+	{% endfor %}
+</body>
+</html>

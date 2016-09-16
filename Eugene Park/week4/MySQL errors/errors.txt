@@ -1,0 +1,2 @@
+1146, Table 'mydb.users' doesn't exist
+2003, Can't connect to MySQL server on '127.0.0.1'
