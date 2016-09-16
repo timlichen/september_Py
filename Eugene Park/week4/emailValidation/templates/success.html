@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<p>Thanks for sucessfully registering by using the email {{session['email']}}!</p>
+	</div>
+	<div>
+		{% for email in emails %}
+		 <p>
+		 <ul>
+		 	<li>Email: {{email.email}}</li>
+		 	<li>Created at:{{email.created_at}}</li>
+		 </ul>
+		 </p>
+		{% endfor %}
+	</div>
+</body>
+</html>
