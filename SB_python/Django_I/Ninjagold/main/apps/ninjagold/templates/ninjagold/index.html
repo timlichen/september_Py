@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+</head>
+<body>
+	<h3>GOLD: {{request.session.gold}}</h3>
+	<form action="/farm" method="post">
+		{% csrf_token %}
+		<input type="submit" value="Farm!">
+	</form>
+	<form action="/cave" method="post">
+		{% csrf_token %}
+		<input type="submit" value="Cave!">
+	</form>
+	<form action="/house" method="post">
+		{% csrf_token %}
+		<input type="submit" value="House!">
+	</form>
+	<form action="/casino" method="post">
+		{% csrf_token %}
+		<input type="submit" value="Casino!">
+	</form>
+	{% for activity in request.session.activities %}
+	<p>{{activity}}</p>
+	{% endfor %}
+</body>
+</html>
