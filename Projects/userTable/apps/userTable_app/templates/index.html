@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Table</title>
+  <style>
+    table, tr, td {
+      border: 1px solid black;
+    }
+    td {
+      padding: 10px;
+    }
+    #userTable {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>User Table</h1>
+  <form action="/addUser" method="Post">
+    {% csrf_token %}
+    <p>Name: <input type="text" name="name"></p>
+    <p>Favorite Food: <input type="text" name="favFood"></p>
+    <p>Favorite City: <input type="text" name="favCity"></p>
+    <input type="submit" value="Go!">
+  </form>
+
+  <div id="userTable">
+    <table>
+    {% for user in users %}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.favorite_food}}</td>
+      <td>{{user.favorite_city}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </div>
+</body>
+</html>

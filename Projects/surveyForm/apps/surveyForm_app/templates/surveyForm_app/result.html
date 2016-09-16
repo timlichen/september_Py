@@ -5,12 +5,16 @@
   <title>Result</title>
 </head>
 <body>
-  {{request.session.counter}}
-  {{request.session.info.favLang}}
-  {{request.session.info.dojoLoc}}
-  {{request.session.info.name}}
-  {{request.session.info.comments}}
-  <a href="/"><button>Go Back!</button></a>
-  <a href="/sessionClear"><button>Reset Counter!</button></a>
+  <div>
+    Thanks for submitting this form! You have submitted this form {{request.session.counter}} times now.
+  </div>
+  <div>
+    <p>Name: {{request.session.info.favLang}}</p>
+    <p>Dojo Location: {{request.session.info.dojoLoc}}</p>
+    <p>Favorite Language: {{request.session.info.name}}</p>
+    <p>Comment: {{request.session.info.comments}}</p>
+    <a href="/"><button>Go Back!</button></a>
+    <a href="/sessionClear"><button>Reset Counter!</button></a>
+  </div>
 </body>
 </html>
