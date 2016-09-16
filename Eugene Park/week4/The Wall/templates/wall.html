@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>THE Wall</title>
+</head>
+<body>
+	<div>
+		<h1>CodingDojo Wall</h1><p> Welcome {{ session['name'] }}</p><a href="/log_out">log off</a><hr>
+	</div>
+	<div>
+		<form action="/post_msg" method="POST">
+			Post a message: <input type="textarea" name="message">
+			<input type="submit" value="Post a message">
+		</form>
+	</div>
+	<div>
+		{% for message in messages %}
+		<ul>
+			<li>{{ message['first_name'] + " " + message['last_name'] + " "}} {{message['created_at']}}<br>
+			<p>{{message['message']}}</p>
+			</li>
+			<ul>
+			{% for comment in comments %}
+			{% if comment['message_id'] == message['id'] %}
+				<li>
+				{{comment['first_name']}} {{comment['last_name']}} -  {{comment['created_at']}}<br> <p>{{comment['comment']}}</p>
+				</li>
+			{% endif %}
+			{% endfor %}
+			</ul>
+			<li>
+				<form action="/post_cmt/{{message['id']}}" method="post">Post a comment:<input type="textarea" name="comment">
+				<input type="submit" value="Post a comment">
+				</form>
+			</li>
+		</ul>
+		{% endfor %}
+	</div>
+</body>
+</html>
