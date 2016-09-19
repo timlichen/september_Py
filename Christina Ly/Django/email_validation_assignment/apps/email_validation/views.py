@@ -2,9 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Email
 
 def index(request):
-	emails = Email.objects.all()
-	for email in emails:
-		print email.email
 	try:
 		request.session['message']
 	except:
