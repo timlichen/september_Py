@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>{{ invalid_alert }}</h1>
+	<form action="process" method="post">
+		{% csrf_token %}
+		<input type="text" name="email">
+		<input type="submit" value="Add">
+	</form>
+</body>
+</html>
