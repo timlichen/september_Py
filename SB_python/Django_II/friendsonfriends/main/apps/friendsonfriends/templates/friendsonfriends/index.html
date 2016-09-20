@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Friends on Friends</h1>
+	<table>
+		<tr>
+			<th>Object 1</th>
+			<th>Object 2</th>
+		</tr>
+		{% for combo in combos %}
+		<tr>
+			<td>{{combo.first.username}}</td>
+			<td>{{combo.second.username}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<form action="/add" method="post">
+		{% csrf_token %}
+		User: <input type="text" name="name">
+		<input type="submit" value="Add">
+	</form>
+	<form action="/merge" method="post">
+		{% csrf_token %}
+		<select name="choice1">
+			{% for choice in choices %}
+			<option value="{{choice.id}}">{{choice.username}}</option>
+			{% endfor %}
+		</select>
+		<select name="choice2">
+			{% for choice in choices %}
+			<option value="{{choice.id}}">{{choice.username}}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Merge">
+	</form>
+</body>
+</html>
