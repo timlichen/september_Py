@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Integration</title>
+</head>
+<body>
+	<form action="{% url 'integration:integration_merge' %}" method='post'>
+		{% csrf_token %}
+		<select name='user'>
+			{% for user in users %}
+			<option value='{{user.id}}'>{{user.first_name}} {{user.last_name}}</option>
+			{% endfor %}
+		</select>
+		<select name= 'course'>
+			{% for course in courses %}
+			<option value='{{course.id}}'>{{course.name}}</option>
+			{% endfor %}
+		</select>
+		<input type='submit' value='Add User to course'>
+	</form>
+	<table>
+		<tr>
+			<th>Course</th>
+			<th>Title</th>
+			<th>Number of Users</th>
+		</tr>
+		{% for course in courses %}
+		<tr>
+			<td>{{course.id}}</td>
+			<td>{{course.name}}</td>
+			{% for num in number_users %}
+			{% if num.course == course.id %}
+			<td>{{num.num_users}}</td>
+			{% endif %}
+			{% endfor %}
+
+		</tr>
+		{% endfor %}
+
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Products</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Actions</th>
+		</tr>
+		{% for product in products %}
+		<tr>
+			<td>{{product.name}}</td>
+			<td>{{product.description}}</td>
+			<td>{{product.price}}</td>
+			<td><a href="{% url 'show' id=product.id %}"> Show </a><a href="{% url 'edit' id=product.id %}"> Edit </a><a href="{% url 'remove' id=product.id %}"> Remove </a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	<a href="{% url 'new' %}">Add New Product</a>
+</body>
+</html>

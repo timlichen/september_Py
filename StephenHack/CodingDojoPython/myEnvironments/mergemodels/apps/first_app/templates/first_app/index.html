@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Add a student to all bootcamp courses</title>
+</head>
+<body>
+	<h2>Add a New Course</h2>
+	<form action="{% url 'courses:addUser' %}" method='post'>
+		{% csrf_token %}
+		<p>Name: <input type='text' name='name'></p>
+		<p>Description: <textarea rows='5' cols='40' name='description'></textarea></p>
+		<input type='submit' value='Add'>
+	</form>
+	<h2>Courses</h2>
+	<table>
+		<tr>
+			<td>Course Name</td>
+			<td>Description</td>
+			<td>Date Added</td>
+			<td>Actions</td>
+		</tr>
+		{% for user in users %}
+		<tr>
+			<td>{{ user.name }}</td>
+			<td>{{ user.description }}</td>
+			<td>{{ user.created_at }}</td>
+				<td><form action="{% url 'courses:destroy' id=user.id %}" method='post'>
+					{% csrf_token %}
+					<input type='submit' value='remove'>
+					</form>   
+				</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
