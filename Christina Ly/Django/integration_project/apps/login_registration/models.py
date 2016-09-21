@@ -15,7 +15,7 @@ class UserManager(models.Manager):
 		for user in users:
 			if user:
 				password = password.encode()
-				if bcrypt.hashpw(password, user.password.encode()):
+				if bcrypt.hashpw(password, user.password.encode())==user.password.encode():
 					return True
 				else:
 					return False

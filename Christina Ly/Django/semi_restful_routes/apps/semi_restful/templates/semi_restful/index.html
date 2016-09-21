@@ -21,8 +21,8 @@
 						<td>{{product.description}}</td>
 						<td>{{product.price}}</td>
 						<td>
-							<a name ="Show">Show</a>
-							<a name= "Edit">Edit</a>
+							<a href ="{% url 'semi_restful:my_show' id=product.id %}"name ="Show">Show</a>
+							<a name ="edit" href="{% url 'semi_restful:my_edit' id=product.id %}">Edit</a> 
 							<a href ="{% url 'semi_restful:my_destroy' id=product.id %}"><input type ="submit" value="Remove"></a>
 						</td>
 					</tr>	

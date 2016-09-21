@@ -14,7 +14,7 @@ def index(request):
 def courses(request):
 	if Courses.objects.validatePresence(request.POST):
 		print "success"
-		course = Courses(name = request.POST['name'], description = request.POST['description']);
+		course = Courses(name = request.POST['name'], description = request.POST['description'])
 		course.save()
 	else:
 		print "fail"
