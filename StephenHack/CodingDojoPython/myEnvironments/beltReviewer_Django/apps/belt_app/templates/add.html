@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Add a New Book Title and Review</title>
+</head>
+<body>
+	<p><a href="">Home </a><a href="{% url 'login' %}">Logout</a></p>
+	<h1>Add a New Book Title and Review</h1>
+	<form>
+		{% csrf_token %}
+		<h3>Book title: <input type='text' name='title'></h3>
+		<h4>Choose from a List: <select name='author_list'></select><h4>
+		<h4>Or add a new author: <input type='text' name='new_author'></h4>
+		<h3>Review: <textarea cols='100' rows='4' name='review'></textarea></h3>
+		<h3>Rating: 
+			<select>
+				<option value='1'>1 Stars</option>
+				<option value='2'>2 Stars</option>
+				<option value='3'>3 Stars</option>
+				<option value='4'>4 Stars</option>
+				<option value='5'>5 Stars</option>
+			</select>
+		</h3>
+	</form>
+</body>
+</html>

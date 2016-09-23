@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Adding a New Product</title>
+</head>
+<body>
+	<h1>Add a New Product</h1>
+	<form action ="{% url 'create' %}" method='post'>
+		{% csrf_token %}
+		<h3>Name</h3>
+		<input type='text' name='name'>
+		<h3>Description</h3>
+		<input type='text' name='description'>
+		<h3>Price</h3>
+		<input type='text' name='price'>
+		<input type='submit' value='Create'>
+	</form>
+	<a href="{% url 'index' %}">Go Back</a>
+</body>
+</html>
