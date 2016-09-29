@@ -5,11 +5,6 @@ from .models import User
 
 # Create your views here.
 def index(request):
-	# users = User.objects.all()
-	# for user in users:
-	# 	print user.email
-	# 	print user.password
-
 	if not 'errors' in request.session:
 		request.session['errors'] = []
 	return render(request, 'first_app/index.html')
@@ -41,4 +36,8 @@ def login(request):
 
 def success(request):
 	result = User.objects.all()
+<<<<<<< HEAD
 	return render(request, 'first_app/success.html')
+=======
+	return render(request, 'first_app/success.html')
+>>>>>>> ead0dbb7734c40a698a6bf26137af7003cd24f2b
