@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Add a New Book Title and Review</title>
+</head>
+<body>
+	<p><a href="{% url 'belt_app:index' %}">Home </a><a href="">Logout</a></p>
+	<h1>Add a New Book Title and Review</h1>
+	<form action = "{% url 'belt_app:create' %}" method='post'>
+		{% csrf_token %}
+		<h3>Book title: <input type='text' name='title'></h3>
+		<h4>Choose from a List: 
+			<select name='author_list'>
+				<option value='Leo Tolstoy'>Leo Tolstoy</option>
+			</select><h4>
+		<h4>Or add a new author: <input type='text' name='new_author'></h4>
+		<h3>Review: <textarea cols='100' rows='4' name='review'></textarea></h3>
+		<h3>Rating: 
+			<select name= 'rating'>
+				<option value='1 Star'>1 Stars</option>
+				<option value='2 Stars'>2 Stars</option>
+				<option value='3 Stars'>3 Stars</option>
+				<option value='4 Stars'>4 Stars</option>
+				<option value='5 Stars'>5 Stars</option>
+			</select>
+		</h3>
+		<input type='submit' value='Add New Book'>
+	</form>
+</body>
+</html>

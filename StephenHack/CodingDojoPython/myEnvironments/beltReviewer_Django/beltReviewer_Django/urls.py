@@ -17,6 +17,6 @@ from django.conf.urls import url, include
 # from django.contrib import admin
 
 urlpatterns = [
-    url(r'^', include('apps.belt_app.urls', namespace='integration')),
-    url(r'^login', include('apps.login_reg_app.urls', namespace='login'))
+    url(r'^', include('apps.belt_app.urls', namespace='belt_app')),
+    url(r'^login', include('apps.login_reg_app.urls', namespace='login_app'))
 ]
